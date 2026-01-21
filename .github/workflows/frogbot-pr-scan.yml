@@ -124,7 +124,6 @@ jobs:
           PLAT_P: ${{ secrets.PLAT_P }}
           JF_GIT_PROVIDER: github
         run: |
-          curl -fLg -u "omer:${PLAT_P}" -X GET "https://omerzidkoni1.jfrog.io/artifactory/frogbot/frogbot" -o "frogbot"
+          curl -fLg -u "omer:${PLAT_P}" -X GET "https://hts2.jfrog.io/artifactory/frogbot/frogbot" -o "frogbot"
           chmod u+x frogbot
           ./frogbot spr
-          
