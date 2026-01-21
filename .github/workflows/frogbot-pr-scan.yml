@@ -123,8 +123,15 @@ jobs:
           JF_GIT_OWNER: omerzi
           PLAT_P: ${{ secrets.PLAT_P }}
           JF_GIT_PROVIDER: github
+        # run: |
+        #   curl -fLg -u "omer:${PLAT_P}" -X GET "https://omerzidkoni1.jfrog.io/artifactory/frogbot/frogbot" -o "frogbot"
+        #   chmod u+x frogbot
+        #   ./frogbot spr
+        
         run: |
-          curl -fLg -u "omer:${PLAT_P}" -X GET "https://omerzidkoni1.jfrog.io/artifactory/frogbot/frogbot" -o "frogbot"
-          chmod u+x frogbot
+          # Download the official Frogbot version
+          curl -fL https://get.frogbot.io | sh
+          
+          # Run Frogbot
           ./frogbot spr
           
