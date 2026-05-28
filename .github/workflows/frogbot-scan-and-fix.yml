@@ -10,7 +10,7 @@ permissions:
   security-events: write
 jobs:
   create-fix-pull-requests:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     strategy:
       matrix:
         # The repository scanning will be triggered periodically on the following branches.
@@ -24,7 +24,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.11'
           cache: 'pip'
       - uses: jfrog/frogbot@v2
         env:
@@ -71,7 +71,7 @@ jobs:
 
           # [Optional]
           # Xray Watches. Learn more about them here: https://www.jfrog.com/confluence/display/JFROG/Configuring+Xray+Watches
-          # JF_WATCHES: <watch-1>,<watch-2>...<watch-n>
+          JF_WATCHES: "TestWatch"
 
           # [Optional]
           # JFrog project. Learn more about it here: https://www.jfrog.com/confluence/display/JFROG/Projects
